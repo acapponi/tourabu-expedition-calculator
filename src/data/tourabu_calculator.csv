@@ -1,0 +1,21 @@
+id,minutes,charcoal,charcoal_success,steel,steel_success,coolant,coolant_success,whetstone,whetstone_success,other,req_sword,req_level
+A1,10,10,15,15,22,0,0,0,0,,,5
+A2,30,0,,0,,30,45,30,45,,1 tantou,10
+A3,20,20,30,0,,20,30,0,0,,1 waki,20
+A4,60,0,,60,90,0,0,60,90,,1 waki | 1 tantou,30
+B1,90,0,,0,,90,135,90,135,Coin Box (Small),,50
+B2,180,0,,50,75,0,0,250,375,Coin Box (Small),1 uchi,60
+B3,120,120,180,0,,120,180,0,0,Request Token,1 tachi,80
+B4,150,0,,180,270,0,0,120,180,Help Token,1 tachi | 1 uchi,100
+C1,240,130,195,240,360,0,0,0,0,Request Token,,110
+C2,180,0,,100,150,60,90,150,225,Help Token,1 ootachi,120
+C3,10,200,300,0,,500,750,0,0,Coin Box (Medium),,130
+C4,480,0,,200,300,0,0,500,750,Help Token,,140
+D1,120,0,,80,120,100,150,60,90,Request Token,,150
+D2,300,100,150,380,570,0,0,0,0,Coin Box (Medium),,180
+D3,720,100,150,200,300,500,750,0,0,Help Token (x2),,200
+D4,360,150,225,0,,0,0,400,600,Coin Box (Large),,220
+E1,720,250,375,250,375,250,375,0,0,Help Token (x2),,240
+E2,1080,200,300,500,750,300,450,0,0,Help Token (x2)|Coin Box (Large),1 yari,260
+E3,900,350,525,200,300,100,150,250,375,Coin Box (Large),1 naginata,280
+E4,1440,300,450,400,600,500,750,0,0,Request Token (x3) | Coin Box (Large),,300

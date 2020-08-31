@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.material-selector{
+  label{
+    position: relative;
+    margin: 0 5px;
+
+    > span{
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      padding: 1px 5px;
+
+      img{
+        width:30px;
+        height: auto;
+        margin-right: 5px;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      span{
+        text-transform: capitalize;
+      }
+    }
+
+    input{
+      visibility: hidden;
+      position: absolute;
+
+      &:checked{
+        + span{
+          box-shadow: 0 0 0 2px #73f173;
+          border-radius: 4px;
+          background: rgba(115, 241, 115, 0.3);
+        }
+      }
+    }
+  }
+}
