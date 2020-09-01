@@ -26,7 +26,7 @@
     "whetstone": 30,
     "whetstone_success": 45,
     "other": "",
-    "req_sword": "1 tantou",
+    "req_sword": "One (1) tantō",
     "req_level": 10
   },
   {
@@ -41,7 +41,7 @@
     "whetstone": 0,
     "whetstone_success": 0,
     "other": "",
-    "req_sword": "1 waki",
+    "req_sword": "One (1) wakizashi",
     "req_level": 20
   },
   {
@@ -56,7 +56,7 @@
     "whetstone": 60,
     "whetstone_success": 90,
     "other": "",
-    "req_sword": "1 waki | 1 tantou",
+    "req_sword": "One (1) wakizashi + One (1) tantō",
     "req_level": 30
   },
   {
@@ -86,7 +86,7 @@
     "whetstone": 250,
     "whetstone_success": 375,
     "other": "Coin Box (Small)",
-    "req_sword": "1 uchi",
+    "req_sword": "One (1) uchigatana",
     "req_level": 60
   },
   {
@@ -101,7 +101,7 @@
     "whetstone": 0,
     "whetstone_success": 0,
     "other": "Request Token",
-    "req_sword": "1 tachi",
+    "req_sword": "One (1) tachi",
     "req_level": 80
   },
   {
@@ -116,7 +116,7 @@
     "whetstone": 120,
     "whetstone_success": 180,
     "other": "Help Token",
-    "req_sword": "1 tachi | 1 uchi",
+    "req_sword": "One (1) tachi + One (1) uchigatana",
     "req_level": 100
   },
   {
@@ -146,12 +146,12 @@
     "whetstone": 150,
     "whetstone_success": 225,
     "other": "Help Token",
-    "req_sword": "1 ootachi",
+    "req_sword": "One (1) ōtachi",
     "req_level": 120
   },
   {
     "id": "C3",
-    "minutes": 10,
+    "minutes": 600,
     "charcoal": 200,
     "charcoal_success": 300,
     "steel": 0,
@@ -265,8 +265,8 @@
     "coolant_success": 450,
     "whetstone": 0,
     "whetstone_success": 0,
-    "other": "Help Token (x2)|Coin Box (Large)",
-    "req_sword": "1 yari",
+    "other": "Help Token (x2) + Coin Box (Large)",
+    "req_sword": "One (1) yari",
     "req_level": 260
   },
   {
@@ -281,7 +281,7 @@
     "whetstone": 250,
     "whetstone_success": 375,
     "other": "Coin Box (Large)",
-    "req_sword": "1 naginata",
+    "req_sword": "One (1) naginata",
     "req_level": 280
   },
   {
@@ -295,7 +295,7 @@
     "coolant_success": 750,
     "whetstone": 0,
     "whetstone_success": 0,
-    "other": "Request Token (x3) | Coin Box (Large)",
+    "other": "Request Token (x3) + Coin Box (Large)",
     "req_sword": "",
     "req_level": 300
   }

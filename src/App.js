@@ -12,7 +12,9 @@ class App extends Component {
       { id:'whetstone', selected:false },
     ],
     filtered : null,
-    great : false
+    great : true,
+    hourly : false,
+    onlyExtras: false
   }
 
   /* cambio el estado del checkbox*/
@@ -37,7 +39,26 @@ class App extends Component {
   getFiltered = () => {
     let filterIndex = this.state.material.map((elm, idx) => elm.selected === true ? elm.id : '').filter(String);
 
-    const filteredData = this.state.data.filter(item => {
+    let filteredData =this.state.data;
+
+    filteredData = filteredData.sort((a, b) => {
+      var promA = 0;
+      var promB = 0;
+      filterIndex.map((el,i) => {
+        promA = promA + Math.round(60*a[el]/a.minutes);
+        promB = promB + Math.round(60*b[el]/b.minutes);
+      })
+
+      promA = promA/filterIndex.length;
+      promB = promB/filterIndex.length;
+
+      return promB - promA;
+    });
+    filterIndex.map((el,i) => {
+    })
+
+
+    filteredData = filteredData.filter(item => {
       let aux = false;
       filterIndex.map((el,i) => {
         if(item[el] > 0){
@@ -57,6 +78,18 @@ class App extends Component {
   toggleGreatSuccess = () => {
     const great = this.state.great;
     this.setState({ great: !great })
+  }
+
+  /* toggle Hourly */
+  toggleHourly = () => {
+    const hourly = this.state.hourly;
+    this.setState({ hourly: !hourly })
+  }
+
+  /* toggle onlyExtras */
+  toggleonlyExtras = () => {
+    const onlyExtras = this.state.onlyExtras;
+    this.setState({ onlyExtras: !onlyExtras })
   }
 
   render() {
@@ -83,12 +116,13 @@ class App extends Component {
     );
 
     let results = null;
-    if(this.state.filtered !== null){
+
+    if((this.state.filtered !== null) && ((this.state.filtered).length > 0)){
       results = (
         <div className="showResults">
           {this.state.filtered.map((item, index) => {
 
-            let charcoalDisplay, steelDisplay, coolantDisplay, whetstoneDisplay;
+            let charcoalDisplay, steelDisplay, coolantDisplay, whetstoneDisplay, time;
 
             if(this.state.great){
               charcoalDisplay = item.charcoal_success;
@@ -102,18 +136,53 @@ class App extends Component {
               whetstoneDisplay = item.whetstone;
             }
 
+            if(this.state.hourly){
+              charcoalDisplay = Math.round(60*charcoalDisplay/item.minutes);
+              steelDisplay = Math.round(60*steelDisplay/item.minutes);
+              coolantDisplay = Math.round(60*coolantDisplay/item.minutes);
+              whetstoneDisplay = Math.round(60*whetstoneDisplay/item.minutes);
+            }
+
+            var hours = (item.minutes / 60);
+            var rhours = Math.floor(hours);
+            var minutes = (hours - rhours) * 60;
+            var rminutes = Math.round(minutes);
+            time = ('0'+rhours).slice(-2) + ":" + ('0'+rminutes).slice(-2);
+
+            if(this.state.onlyExtras && item.other === ''){return;}
+
             return(
-              <div key={item.id}>
-                <h2>{item.id}</h2>
-                <ul>
-                  <li>Charcoal: {charcoalDisplay}</li>
-                  <li>Steel: {steelDisplay}</li>
-                  <li>Coolant: {coolantDisplay}</li>
-                  <li>Whetstone: {whetstoneDisplay}</li>
-                </ul>
+              <div key={item.id} className="result">
+                <h2>{item.id}<small>{time}</small></h2>
+                <div className="result-content">
+                  <div>
+                    <ul>
+                      <li>Charcoal: {charcoalDisplay}</li>
+                      <li>Steel: {steelDisplay}</li>
+                      <li>Coolant: {coolantDisplay}</li>
+                      <li>Whetstone: {whetstoneDisplay}</li>
+                    </ul>
+                    {item.other !== '' &&
+                      <span className="icon-plus">{item.other}</span>
+                    }
+                  </div>
+                  <div className="requires">
+                    <div>Sword level: {item.req_level}</div>
+                    {item.req_sword !== '' &&
+                      <div>Sword type: {item.req_sword}</div>
+                    }
+                  </div>
+                </div>
               </div>
             )
           })}
+        </div>
+      );
+    }else{
+      results = (
+        <div className="startText">
+          <p>To start click on the material(s) you need.</p>
+          <p><small>This tool was made for fun, based on data from the <a href="https://touken-ranbu.fandom.com/wiki/Expeditions" target="_blank">Expeditions page</a> from the Touken Ranbu wiki. It shows the best expedition to get the materials selected.</small></p>
         </div>
       );
     }
@@ -127,20 +196,39 @@ class App extends Component {
               <h1 className="App-title">Expedition drop calculator</h1>
               <div>
                 {materials}
-                <label>
-                  <input type="checkbox"
-                    name="showGreatSuccess"
-                    onClick={this.toggleGreatSuccess} />
-                  Show Great Success
-                </label>
+                <div>
+                  <div className="custom-control custom-switch  custom-control-inline">
+                    <input type="checkbox"
+                      className="custom-control-input showGreatSuccess"
+                      name="showGreatSuccess" id="showGreatSuccess"
+                      onChange={this.toggleGreatSuccess} checked={this.state.great} />
+                    <label className="custom-control-label" htmlFor="showGreatSuccess">Great Success</label>
+                  </div>
+
+                  <div className="custom-control custom-switch  custom-control-inline">
+                    <input type="checkbox"
+                      className="custom-control-input toggleHourly"
+                      name="toggleHourly" id="toggleHourly"
+                      onChange={this.toggleHourly} checked={this.state.hourly} />
+                    <label className="custom-control-label" htmlFor="toggleHourly">Drop by hour</label>
+                  </div>
+
+                  <div className="custom-control custom-switch  custom-control-inline">
+                    <input type="checkbox"
+                      className="custom-control-input toggleHourly"
+                      name="toggleonlyExtras" id="toggleonlyExtras"
+                      onChange={this.toggleonlyExtras} checked={this.state.onlyExtras} />
+                    <label className="custom-control-label" htmlFor="toggleonlyExtras">Only extra drop</label>
+                  </div>
+                </div>
               </div>
             </div>
           </header>
-          <main>
+          <main className="App-content">
             {results}
           </main>
           <footer  className="App-footer">
-            <span>Photo by <a href="https://unsplash.com/@babybluecat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">J Lee</a> on <a href="https://unsplash.com/s/photos/sakura?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+            <a href="https://github.com/acapponi" target="_blank"><img src="./images/github.svg" width="15"/> <span>acapponi</span></a>
           </footer>
         </div>
       </div>
