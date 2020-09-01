@@ -120,20 +120,29 @@ class App extends Component {
 
 
     return (
-      <div className="App container">
-        <header className="App-header">
-          <h1 className="App-title">Expedition drop calculator</h1>
-        </header>
-        <div>
-          {materials}
-          <label>
-            <input type="checkbox"
-              name="showGreatSuccess"
-              onClick={this.toggleGreatSuccess} />
-            Show Great Success
-          </label>
+      <div className="App">
+        <div className="App-wrapper">
+          <header className="App-header">
+            <div>
+              <h1 className="App-title">Expedition drop calculator</h1>
+              <div>
+                {materials}
+                <label>
+                  <input type="checkbox"
+                    name="showGreatSuccess"
+                    onClick={this.toggleGreatSuccess} />
+                  Show Great Success
+                </label>
+              </div>
+            </div>
+          </header>
+          <main>
+            {results}
+          </main>
+          <footer  className="App-footer">
+            <span>Photo by <a href="https://unsplash.com/@babybluecat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">J Lee</a> on <a href="https://unsplash.com/s/photos/sakura?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+          </footer>
         </div>
-        {results}
       </div>
     );
   }
