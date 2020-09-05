@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/tourabu-expedition-calculator/static/css/main.5272aa1a.chunk.css",
+    "main.js": "/tourabu-expedition-calculator/static/js/main.1aba2e92.chunk.js",
+    "main.js.map": "/tourabu-expedition-calculator/static/js/main.1aba2e92.chunk.js.map",
+    "runtime-main.js": "/tourabu-expedition-calculator/static/js/runtime-main.af8f890b.js",
+    "runtime-main.js.map": "/tourabu-expedition-calculator/static/js/runtime-main.af8f890b.js.map",
+    "static/js/2.769d727e.chunk.js": "/tourabu-expedition-calculator/static/js/2.769d727e.chunk.js",
+    "static/js/2.769d727e.chunk.js.map": "/tourabu-expedition-calculator/static/js/2.769d727e.chunk.js.map",
+    "index.html": "/tourabu-expedition-calculator/index.html",
+    "precache-manifest.284d752825138fcce7bf9b4acd540fdb.js": "/tourabu-expedition-calculator/precache-manifest.284d752825138fcce7bf9b4acd540fdb.js",
+    "service-worker.js": "/tourabu-expedition-calculator/service-worker.js",
+    "static/css/main.5272aa1a.chunk.css.map": "/tourabu-expedition-calculator/static/css/main.5272aa1a.chunk.css.map",
+    "static/js/2.769d727e.chunk.js.LICENSE.txt": "/tourabu-expedition-calculator/static/js/2.769d727e.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/tourabu-expedition-calculator/static/media/j-lee-LYBSBjGo-5s-unsplash.95fe5256.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af8f890b.js",
+    "static/js/2.769d727e.chunk.js",
+    "static/css/main.5272aa1a.chunk.css",
+    "static/js/main.1aba2e92.chunk.js"
+  ]
+}
